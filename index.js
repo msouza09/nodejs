@@ -1,20 +1,23 @@
 const fastify = require('fastify')({logger:true});
+import { DataBaseMemory } from './database-memory.js';
 
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-fastify.get('/', () => {
-  return 'Hello World';
+//POST localhost:3000/videos
+//PUT localhost:3000/videos/1
+
+fastify.get('/videos', () => {
+  return 'Hello World'
 });
 
-fastify.get('/teste', () => {
-  return 'Hello Matheus';
-});
+fastify.put('/videos/:id', () => {
+  return 'Hello Node.js'
+})
 
-fastify.get('/node', () => {
-  return 'Faz o L';
-});
-
+fastify.delete('/videos/:id', () => {
+  return 'Hello Node.js'
+})
 
 fastify.listen(PORT, HOST, (err,address) => {
   if (err) {
